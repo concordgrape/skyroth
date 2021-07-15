@@ -6,3 +6,15 @@
 .navbar .navbar-collapse {
     text-align: center;
 }
+
+.bounds {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+@media screen and (max-width: 1000px) {
+    .bounds {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
