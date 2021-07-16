@@ -12,9 +12,17 @@
     padding-right: 20%;
 }
 
+.title {
+    font-size: 25px;
+}
+
 @media screen and (max-width: 1000px) {
     .bounds {
         padding-left: 5%;
         padding-right: 5%;
+    }
+
+    .title {
+        font-size: 15px;
     }
 }
