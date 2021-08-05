@@ -1,0 +1,72 @@
+/*
+CSS stylesheet for the main splash section
+- File: splash.css
+- Project: Sohl Construction Website
+
+- First Created: March 13, 2021
+- Last Updated: March 13, 2021
+*/
+
+
+
+
+.backgroundImg {
+    position: relative;
+}
+
+.centered {
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    padding-top: 15px;
+}
+
+#mainSplash {
+    position: relative;
+    background-color: #fff;
+}
+
+#mainSplash-Text {
+    position: absolute;
+    padding-left: 60px;
+    padding-top: 400px;
+
+    font-family: SF-Pro-Bold;
+    color: white;
+
+    font-size: 150px;
+}
+
+.splashText {
+    font-size: 65px;
+    padding-top: 0px;
+    font-family: SF-Pro-Bold;
+}
+
+.small_splashText {
+    font-size: 20px;
+}
+
+.splashBtn {
+    position: absolute;
+    font-size: 10px;
+    padding: 5px;
+}
+
+
+/*
+SCREEN SIZE
+*/
+@media screen and (max-width: 1000px) {
+    .splashText {
+        font-size: 30px;
+    }
+
+    .small_splashText {
+        font-size: 10px;
+    }
+
+    .splashBtn {
+        font-size: 7px;
+    }
+}
