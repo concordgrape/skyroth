@@ -21,6 +21,11 @@
     padding: 50px;
 }
 
+.meimg {
+    width: 50%;
+    height: 50%;
+}
+
 @font-face { 
     font-family: Retroica; src: url("../css/fonts/Retroica.ttf");
 }
@@ -34,5 +39,10 @@
 
     .title {
         font-size: 20px;
+    }
+
+    .meimg {
+        width: 30%;
+        height: 30%;
     }
 }
