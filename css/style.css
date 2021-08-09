@@ -1,0 +1,37 @@
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.bounds {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.title {
+    font-size: 25px;
+}
+
+.project {
+    padding: 50px;
+}
+
+@font-face { 
+    font-family: Retroica; src: url("../css/fonts/Retroica.ttf");
+}
+
+
+@media screen and (max-width: 1000px) {
+    .bounds {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+}
