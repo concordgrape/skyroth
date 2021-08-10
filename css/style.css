@@ -19,6 +19,8 @@
 
 .project {
     padding: 50px;
+    width: 50%;
+    height: 50%;
 }
 
 .meimg {
@@ -29,7 +31,6 @@
 @font-face { 
     font-family: Retroica; src: url("../css/fonts/Retroica.ttf");
 }
-
 
 @media screen and (max-width: 1000px) {
     .bounds {
@@ -44,5 +45,11 @@
     .meimg {
         width: 70%;
         height: 70%;
+    }
+
+    .project {
+        padding: 50px;
+        width: 80%;
+        height: 80%;
     }
 }
