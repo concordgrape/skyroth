@@ -12,10 +12,10 @@ function App() {
       <h3>03/05/23</h3>
       <ul>
         <li>Initial Release</li>
-        <li>Decreased default number of generate paragraphs</li>
+        <li>Decreased default number of generated paragraphs</li>
         <li>Created original passage section</li>
       </ul>  
-      <h2><a href="http://www.loremgen.com" target="_blank">white_border - App</a></h2>
+      <h2><a href="https://apps.apple.com/ca/app/white-border/id1574787497" target="_blank">white_border - App</a></h2>
       <h3>03/02/23</h3>
       <ul>
         <li>Bug Fixes</li>
