@@ -10,8 +10,8 @@
         .column {
           float: left;
           width: 20%;
-          padding-left: 40px;
           padding-top: 20px;
+          padding-left: 40px;
         }
         .row:after {
           content: "";
@@ -24,14 +24,6 @@
 <body>
     <div style="background-color: #F6F8FA; padding-left: 30px; padding-top: 30px;">
         <script>
-            function createPodM1() {
-                var selected = Array.from(document.querySelectorAll("input[type=checkbox]:checked")) 
-                    .map(function(checkbox) { return checkbox.value; })
-                    .join('<br>');
-    
-                document.getElementById("m1_demo").innerHTML = selected;
-            }
-
             function createPod() {
                 var selected = Array.from(document.querySelectorAll("input[type=checkbox]:checked")) 
                     .map(function(checkbox) { return checkbox.value; })
@@ -143,19 +135,19 @@
                 </label>
             </div>
             <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="pod 'FreestarAds-Vungle', '~> 6.10.6.2'" id="flexCheckDefault" onchange="createPodM1()">
+                <input class="form-check-input" type="checkbox" value="pod 'FreestarAds-Vungle', '~> 6.10.6.2'" id="flexCheckDefault" onchange="createPod()">
                 <label class="form-check-label" for="flexCheckDefault">
                     Vungle
                 </label>
             </div>
             <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="pod 'FreestarAds-Google', '~> 3.13.0.1'" id="flexCheckDefault" onchange="createPodM1()">
+                <input class="form-check-input" type="checkbox" value="pod 'FreestarAds-Google', '~> 3.13.0.1'" id="flexCheckDefault" onchange="createPod()">
                 <label class="form-check-label" for="flexCheckDefault">
                     Google
                 </label>
             </div>
             <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="pod 'FreestarAds-Pangle', '~> 3.7.0.1'" id="flexCheckDefault" onchange="createPodM1()">
+                <input class="form-check-input" type="checkbox" value="pod 'FreestarAds-Pangle', '~> 3.7.0.1'" id="flexCheckDefault" onchange="createPod()">
                 <label class="form-check-label" for="flexCheckDefault">
                     Pangle
                 </label>
@@ -177,11 +169,7 @@ pod 'FreestarAds', '~> 5.19.0' # required
 
 # Only specify the partners for which you want to run ads
 
-# M1 compatible
 <p id="demo" style="padding-left: 20px;"></p>
-
-# Not M1 compatible pods
-<p id="m1_demo" style="padding-left: 20px;"></p>
 end
 </code></pre>
 </div>
