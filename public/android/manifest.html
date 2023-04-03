@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <link href="https://unpkg.com/@picocss/pico@1.3.3/css/pico.slim.min.css" rel="stylesheet"/>
+    <div id="output"></div>
+    <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
+
+    <script>
+        window.onload = function() {
+            const md = window.markdownit();
+    
+    fetch('https://raw.githubusercontent.com/freestarcapital/SDK_documentation_Android/master/app/src/main/AndroidManifest.xml')
+    .then((response) => response.text())
+    .then((text) => {
+        const element = document.getElementById('output').innerHTML = md.render(text);
+    })
+        }
+
+    </script>
+</head>
+<body style="padding-left: 40px; padding-top: 30px; background-color: light;">
+    <span id="output"></span>
+</body>
+</html>
