@@ -5,34 +5,54 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
+    <script>
+        document.querySelector('button').addEventListener('click', () => {
+        const code = document.getElementById('code');
+        code.select();
+        document.execCommand('copy');
+        });
+
+        function copy_text(item) {
+            const str = item.parentNode.querySelector('code').innerText;
+            const el = document.createElement("textarea");
+            el.value = str;
+            el.setAttribute("readonly", "");
+            el.style.position = "absolute";
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.select(); document.execCommand("copy");
+            document.body.removeChild(el);
+        };
+    </script>
     <div style="background-color: #F6F8FA; padding-left: 30px; padding-top: 30px;">
+        <button onclick="copy_text(this)" class="fa fa-clipboard btn btn-outline-dark"></button>
         <pre><code id="code">
-            buildscript {
-                repositories {
-                    google()
-                    mavenCentral()
-                }
-                dependencies {
-                    classpath 'com.google.gms:google-services:4.3.15'
-                    classpath 'com.android.tools.build:gradle:4.0.1'
-                }
-            }
-            
-            allprojects {
-                repositories {
-                    google()
-                    mavenCentral()
-                    maven { url 'https://jitpack.io' }
-                    maven { url 'https://freestar.jfrog.io/artifactory/freestar-mediation-android-sdk' }
-                    maven { url 'https://s3.amazonaws.com/moat-sdk-builds' }
-                    maven { url 'https://sdk.tapjoy.com/' }
-                    maven { url 'https://artifact.bytedance.com/repository/pangle' }
-                    maven { url 'https://hyprmx.jfrog.io/artifactory/hyprmx' }
-                    maven { url 'https://adsbynimbus-public.s3.amazonaws.com/android/sdks' }
-                    maven { url 'https://artifactory.verizonmedia.com/artifactory/maven/' }
-                    maven { url "https://maven.ogury.co" }
-                }
-            }
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.15'
+        classpath 'com.android.tools.build:gradle:4.0.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://freestar.jfrog.io/artifactory/freestar-mediation-android-sdk' }
+        maven { url 'https://s3.amazonaws.com/moat-sdk-builds' }
+        maven { url 'https://sdk.tapjoy.com/' }
+        maven { url 'https://artifact.bytedance.com/repository/pangle' }
+        maven { url 'https://hyprmx.jfrog.io/artifactory/hyprmx' }
+        maven { url 'https://adsbynimbus-public.s3.amazonaws.com/android/sdks' }
+        maven { url 'https://artifactory.verizonmedia.com/artifactory/maven/' }
+        maven { url "https://maven.ogury.co" }
+    }
+}
         </code></pre>
     </div>
 </body>
