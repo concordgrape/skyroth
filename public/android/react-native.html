@@ -33,14 +33,14 @@
                         dict["React Native"] = format_quotes.replace('//', '')
                     }
                 }
-                $("#dependencies").append(`    //`+"React Native"+`<br />` +dict["React Native"]+`<br />`)
+                $("#dependencies").append(`    //`+"React Native"+`<br />` +dict["React Native"])
         });
 
 
         function createDependency() {
                 var selected = Array.from(document.querySelectorAll("input[type=checkbox]:checked")) 
                     .map(function(checkbox) { return checkbox.value; })
-                    .join('<br>');
+                    .join('');
     
                 document.getElementById("dependencies").innerHTML = selected;
             }
