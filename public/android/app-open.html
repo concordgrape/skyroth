@@ -1,0 +1,66 @@
+<!-- Freestar LLC -->
+<!-- Last Modified: April 10, 2023 -->
+<!DOCTYPE html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    </style>
+    <script>
+        var file = "https://raw.githubusercontent.com/freestarcapital/SDK_documentation_Android/master/app/build.gradle";
+        var dict = new Object()
+        var didStart = false
+        const title = "App Open"
+        $.get(file,function(txt){
+                var lines = txt.split("\n");
+                var dict = new Object();
+                for (var i = 0, len = lines.length; i < len; i++) {
+                    
+                    const format_quotes = lines[i].split("'").join('');
+                    if (format_quotes.includes('lifecycle:lifecycle-')) {
+                        dict[i] = format_quotes
+                    }
+                }
+
+                $("#dependencies").append(`//`+title+`<br/><br /> `)
+                for (const entry in dict){
+                    $("#dependencies").append(dict[entry]+`<br/> `)
+                }
+        });
+
+
+        function createDependency() {
+                var selected = Array.from(document.querySelectorAll("input[type=checkbox]:checked")) 
+                    .map(function(checkbox) { return checkbox.value; })
+    
+                document.getElementById("dependencies").innerHTML = selected;
+            }
+
+            document.querySelector('button').addEventListener('click', () => {
+            const code = document.getElementById('code');
+            code.select();
+            document.execCommand('copy');
+        });
+
+        function copy_text(item) {
+            const str = item.parentNode.querySelector('code').innerText;
+            const el = document.createElement("textarea");
+            el.value = str;
+            el.setAttribute("readonly", "");
+            el.style.position = "absolute";
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.select(); document.execCommand("copy");
+            document.body.removeChild(el);
+        };
+    </script>
+</head>
+<body style="background-color: #F6F8FA; padding-left: 30px; height: 300px">
+    <button onclick="copy_text(this)" class="fa fa-clipboard btn btn-outline-dark" style="margin-top: 30px"></button>
+    <code id="code">
+    <p id="dependencies" style="padding-top: 30px; color: black;"></p>
+    </code>
+</body>
+</html>
