@@ -30,7 +30,7 @@
                     
                     const format_quotes = lines[i].split("'").join('');
                     if (format_quotes.includes('react-native-android')) {
-                        dict["React Native"] = format_quotes
+                        dict["React Native"] = format_quotes.replace('//', '')
                     }
                 }
                 $("#dependencies").append(`    //`+"React Native"+`<br />` +dict["React Native"]+`<br />`)
