@@ -25,6 +25,7 @@
         var didStart = false
         var dict = new Object()
         var currentObject = "Freestar Ads"
+        var skipObjects = ["Freestar Ad Quality", "AppOpen Ads"] // Don't include these providers if they appear
         $.get(file,function(txt){
                 var lines = txt.split("\n");
                 var dict = new Object();
@@ -53,6 +54,7 @@
                 }
 
                 for (const entry in dict) {
+                    if (skipObjects.includes(entry)) { continue; }
                     if (entry == "Freestar Ads") { $("#default_dependencies").append(`    //`+entry+`<br />`+dict[entry]); continue; }
                     $("#options").append(`
                     <div class="form-check column">
