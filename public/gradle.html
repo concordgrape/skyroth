@@ -1,17 +1,18 @@
+<!-- Freestar LLC -->
+<!-- Last Modified: April 10, 2023 -->
 <!DOCTYPE html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <style>
         /* Create two equal columns that floats next to each other */
         .column {
           float: left;
           width: 20%;
-          padding-left: 40px;
           padding-top: 20px;
+          padding-left: 40px;
         }
         .row:after {
           content: "";
@@ -19,168 +20,90 @@
           clear: both;
         }
     </style>
-</head>
+    <script>
+        var file = "https://raw.githubusercontent.com/freestarcapital/SDK_documentation_Android/master/app/build.gradle";
+        var didStart = false
+        var dict = new Object()
+        var currentObject = "Freestar Ads"
+        $.get(file,function(txt){
+                var lines = txt.split("\n");
+                var dict = new Object();
+                for (var i = 0, len = lines.length; i < len; i++) {
+                    
+                    const format_quotes = lines[i].split("'").join('');
+                    console.log(format_quotes)
+                    if (format_quotes.includes('//begin')) {
+                        didStart = true
+                        continue;
+                    } else if (format_quotes.includes('//end')) {
+                        didStart = false
+                    }
+                    
+                    if (didStart) {
+                        if (format_quotes.includes('//')) {
+                            currentObject = lines[i].split("//")[1]
+                        } else {
+                            if (format_quotes == "") { continue; }
+                            if (dict[currentObject] != null) {
+                                dict[currentObject] += "\n" + format_quotes
+                            } else {
+                                dict[currentObject] = format_quotes
+                            }
+                        }
+                    }
+                }
 
-<body>
-    <div style="background-color: #F6F8FA; padding-left: 30px; padding-top: 30px;">
-        <script>
-            function createGradle() {
+                for (const entry in dict) {
+                    if (entry == "Freestar Ads") { $("#default_dependencies").append(`    //`+entry+`<br />`+dict[entry]); continue; }
+                    $("#options").append(`
+                    <div class="form-check column">
+                        <input class="form-check-input" type="checkbox" value='`+ `    //`+entry+`<br />` +dict[entry]+`<br />' id="flexCheckDefault" onchange="createDependency()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            `+entry+`
+                        </label>
+                    </div>
+                    `)
+                }
+        });
+
+
+        function createDependency() {
                 var selected = Array.from(document.querySelectorAll("input[type=checkbox]:checked")) 
                     .map(function(checkbox) { return checkbox.value; })
-                    .join('<br> ');
+                    .join('<br>');
     
-                document.getElementById("demo").innerHTML = selected;
+                document.getElementById("dependencies").innerHTML = selected;
             }
 
             document.querySelector('button').addEventListener('click', () => {
             const code = document.getElementById('code');
             code.select();
             document.execCommand('copy');
-            });
+        });
 
-            function copy_text(item) {
-                const str = item.parentNode.querySelector('code').innerText;
-                const el = document.createElement("textarea");
-                el.value = str;
-                el.setAttribute("readonly", "");
-                el.style.position = "absolute";
-                el.style.left = '-9999px';
-                document.body.appendChild(el);
-                el.select(); document.execCommand("copy");
-                document.body.removeChild(el);
-            };
-        </script>
-    
-        <div class="row">
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Admob<br/>implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.5.0.0'<br/>implementation 'com.google.android.gms:play-services-ads:21.5.0'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    AdMob
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//GAM<br/>implementation 'com.freestar.android.ads.google:freestar-google-adapter:21.5.0.0'<br/>implementation 'com.google.android.gms:play-services-ads:21.5.0'<br/>implementation 'com.facebook.android:audience-network-sdk:6.12.0'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    GAM
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//AppLovin<br/>implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.1'<br/>implementation 'com.applovin:applovin-sdk:11.5.5'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    AppLovin
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//AppLovinMAX<br/>implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.5.5.0'<br/>implementation 'com.applovin:applovin-sdk:11.5.5'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    AppLovin MAX
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Amazon TAM (Transparent Ads Marketplace)<br/>implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:9.7.0.0'<br/>implementation 'com.amazon.android:aps-sdk:9.7.0@aar'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    TAM
-                </label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//AdColony<br/>implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.5.1'<br/>implementation 'com.adcolony:sdk:4.8.0'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    AdColony
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Criteo<br/>implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.4.0.1'<br/>implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Criteo
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Unity Ads<br/>implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:4.1.0.1'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Unity Ads
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Vungle<br/>implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.4.1'<br/>implementation 'com.vungle:publisher-sdk-android:6.10.5'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Vungle
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Yahoo Ads<br/>implementation 'com.freestar.android.ads.yahoo:freestar-yahoo-adapter:1.14.0.3'<br/>implementation 'com.verizon.ads:android-vas-standard-edition:1.14.0'<br/>implementation 'androidx.browser:browser:1.4.0'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Yahoo Ads
-                </label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//TapJoy<br/>implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.10.0.0'<br/>implementation 'com.tapjoy:tapjoy-android-sdk:12.11.1@aar'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    TapJoy
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Nimbus<br/>implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:2.1.0.0'<br/>implementation 'com.adsbynimbus.android:nimbus:2.1.1'<br/>implementation 'com.adsbynimbus.android:extension-facebook:2.1.1'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Nimbus
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Pangle<br/>implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.1'<br/>implementation 'com.pangle.global:ads-sdk:3.7.1.4'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Pangle
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//HyprMX<br/>implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.3.0'<br/>implementation 'com.hyprmx.android:HyprMX-SDK:6.0.3'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    HyprMX
-                </label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Ogury<br/>implementation 'com.freestar.android.ads.ogury:freestar-ogury-adapter:5.4.0.0'<br/>implementation 'co.ogury:ogury-sdk:5.4.0'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Ogury
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Prebid<br/>implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.0.2.3'<br/>implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.0.2.1'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Prebid
-                </label>
-            </div>
-            <div class="form-check column">
-                <input class="form-check-input" type="checkbox" value="<br/>//Fyber<br/>implementation 'com.freestar.android.ads.fyber:freestar-fyber-adapter:8.2.0.1'<br/>implementation 'com.fyber:marketplace-sdk:8.2.0'" id="flexCheckDefault" onchange="createGradle()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Fyber
-                </label>
-            </div>
-        </div>
-
-        
-        <br />
-        <br />
-        <button onclick="copy_text(this)" class="fa fa-clipboard btn btn-outline-dark"></button>
-        <pre><code id="code">
-            
+        function copy_text(item) {
+            const str = item.parentNode.querySelector('code').innerText;
+            const el = document.createElement("textarea");
+            el.value = str;
+            el.setAttribute("readonly", "");
+            el.style.position = "absolute";
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.select(); document.execCommand("copy");
+            document.body.removeChild(el);
+        };
+    </script>
+</head>
+<body style="background-color: #F6F8FA; padding-left: 30px; padding-top: 30px;">
+    <span id="options" class="row"></span>
+    <button onclick="copy_text(this)" class="fa fa-clipboard btn btn-outline-dark" style="margin-top: 30px;"></button>
+    <pre><code id="code">
 dependencies {
 
-implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-//begin Freestar
-implementation 'com.freestar.android.ads:freestar:5.1.2'
-
-//Freestar Ad Quality
-implementation 'com.freestar.android.ads.quality:quality:5.0.3.2'
-<p id="demo"></p>
+    //begin Freestar
+    <p id="default_dependencies"><p id="dependencies"></p></p> 
+    //end Freestar
 }
-        </code></pre>
-        </div>
-        </body>
-
-        </html>
+    </code></pre>  
+</body>
+</html>
