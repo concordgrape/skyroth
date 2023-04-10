@@ -31,7 +31,6 @@
                 for (var i = 0, len = lines.length; i < len; i++) {
                     
                     const format_quotes = lines[i].split("'").join('');
-                    console.log(format_quotes)
                     if (format_quotes.includes('//begin')) {
                         didStart = true
                         continue;
