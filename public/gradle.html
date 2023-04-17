@@ -26,13 +26,14 @@
         var didStart = false
         var dict = new Object()
         var currentObject = "Freestar Ads"
-        var skipObjects = ["Freestar Ad Quality", "AppOpen Ads", "Preroll", "start preroll", "uncomment if your app is a React Native app"] // Don't include these providers if they appear
+        var skipObjects = ["Freestar Ad Quality", "AppOpen Ads", "Preroll"] // Don't include these providers if they appear
         $.get(file,function(txt){
                 var lines = txt.split("\n");
                 var dict = new Object();
+                var listODependencies = "";
                 for (var i = 0, len = lines.length; i < len; i++) {
                     
-                    const format_quotes = lines[i].split("'").join('');
+                    const format_quotes = lines[i].split("'").join('"');
                     if (format_quotes.includes('//begin')) {
                         didStart = true
                         continue;
@@ -41,25 +42,18 @@
                     }
                     
                     if (didStart) {
-                        if (format_quotes.includes('//') && !format_quotes.includes(currentObject) && !format_quotes.includes('implementation')) {
-                            currentObject = lines[i].split("//")[1]
-                        } else {
-                            if (format_quotes == "") { continue; }
-                            if (dict[currentObject] != null) {
-                                dict[currentObject] += "\n" + format_quotes
-                            } else {
-                                dict[currentObject] = format_quotes
-                            }
-                        }
+                        listODependencies += format_quotes + '\n'
                     }
                 }
 
+                dict = parseDependencies(listODependencies)
+
                 for (const entry in dict) {
                     if (skipObjects.includes(entry)) { continue; }
-                    if (entry == "Freestar Ads") { $("#default_dependencies").append(`    //`+entry+`<br />`+dict[entry]); continue; }
+                    if (entry == "Freestar Ads") { $("#default_dependencies").append(`//`+entry+`<br />`+dict[entry]); continue; }
                     $("#options").append(`
                     <div class="form-check column">
-                        <input class="form-check-input" type="checkbox" value='`+ `    //`+entry+`<br />` +dict[entry]+`<br />' id="flexCheckDefault" onchange="createDependency()">
+                        <input class="form-check-input" type="checkbox" value='`+ `//`+entry+`<br />` +dict[entry]+`<br />' id="flexCheckDefault" onchange="createDependency()">
                         <label class="form-check-label" for="flexCheckDefault">
                             `+entry+`
                         </label>
@@ -67,6 +61,29 @@
                     `)
                 }
         });
+
+    function parseDependencies(input) {
+        const lines = input.trim().split('\n');
+        const result = {};
+
+        let currentKey = null;
+        for (const line of lines) {
+        const trimmedLine = line.trim();
+        if (trimmedLine.startsWith('//')) {
+            currentKey = trimmedLine.replace('//', '');
+        } else if (trimmedLine.startsWith('implementation') && currentKey !== null) {
+            if (result[currentKey]) {
+            result[currentKey] += '\n' + trimmedLine;
+            } else {
+            result[currentKey] = trimmedLine;
+            }
+        } else if (trimmedLine.startsWith('implementation "com.freestar.android.ads:freestar')) {
+            result["Freestar Ads"] = trimmedLine
+        }
+    }
+
+      return result;
+    }
 
 
         function createDependency() {
@@ -103,7 +120,7 @@
 dependencies {
 
     //begin Freestar
-    <p id="default_dependencies"><p id="dependencies"></p></p> 
+    <p id="default_dependencies" style="margin-left: 30px"><p id="dependencies" style="margin-left: 30px"></p></p>
     //end Freestar
 }
     </code></pre>  
