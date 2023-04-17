@@ -42,6 +42,7 @@
                     if (didStart) {
                         if (format_quotes.includes('//') && !format_quotes.includes('implementation')) {
                             currentObject = lines[i].split("//")[1]
+                            if (format_quotes.includes("AppOpen Ads")) { didStart = false }
                         } else {
                             if (format_quotes == "") { continue; }
                             if (dict[currentObject] != null) {
