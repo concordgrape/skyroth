@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 33
+    defaultConfig {
+        applicationId "com.freestar.android.sample"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            minifyEnabled true
+
+            // Enables resource shrinking, which is performed by the
+            // Android Gradle plugin.
+            shrinkResources true
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'androidx.annotation:annotation:1.5.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    //glide and gson needed for sample only, not freestar ads
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //begin Freestar
+    implementation 'com.freestar.android.ads:freestar:5.1.2'
+
+    //Freestar Not Ads
+    implementation 'com.freestar.android..not.ads.google:freestar-not-google-adapter:21.5.0.0'
+    implementation 'com.google.android.gms:play-services-ads:21.5.0'
+
+    //Freestar Ad Quality
+    implementation 'com.freestar.android.ads.quality:quality:5.0.3.2'
+
+    //Google Ads Manager (GAM)
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter:21.5.0.0'
+    implementation 'com.google.android.gms:play-services-ads:21.5.0'
+
+    //AdMob
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.5.0.0'
+    implementation 'com.google.android.gms:play-services-ads:21.5.0'  //can remove if already used
+
+//New Ad Partner
+    implementation 'com.freestar.android.ads.new-ad-partner:21.5.0.0'
+    implementation 'com.google.android.gms:play-services-ads:21.5.0'  //duplicated play services
+    //random comment
+        implementation 'com.freestar.android.ads.new-ad-partner-double-mediator:67.9.9.9'
+
+    //uncomment if your app is a React Native app
+    //implementation 'com.freestar.android.ads:react-native-android:1.2.1'
+
+    //Note: If you want to use Preroll video ads, un-comment the following lines:
+    //Important: Preroll is not compatible with Nimbus, so remove all 3 Nimbus
+    //dependencies (above) before using Preroll video ads (freestar-nimbus-adapter,
+    //and nimbus section).
+    //start preroll
+    //implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.24.0'
+    //implementation 'com.google.android.exoplayer:exoplayer-core:2.15.1'
+    //implementation 'com.google.android.exoplayer:exoplayer-ui:2.15.1'
+    //implementation 'com.google.android.exoplayer:extension-ima:2.15.1'
+    //end preroll
+
+    //end, FreeStar
+
+    //start, test dependencies
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //end, test dependencies
+
+}
