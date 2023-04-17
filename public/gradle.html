@@ -25,7 +25,7 @@
         var didStart = false
         var dict = new Object()
         var currentObject = "Freestar Ads"
-        var skipObjects = ["Freestar Ad Quality", "AppOpen Ads"] // Don't include these providers if they appear
+        var skipObjects = ["Freestar Ad Quality", "AppOpen Ads", "Preroll"] // Don't include these providers if they appear
         $.get(file,function(txt){
                 var lines = txt.split("\n");
                 var dict = new Object();
@@ -40,12 +40,11 @@
                     }
                     
                     if (didStart) {
-                        if (format_quotes.includes('//') && !format_quotes.includes('implementation')) {
+                        if (format_quotes.includes('//') && !format_quotes.includes(currentObject)) {
                             currentObject = lines[i].split("//")[1]
-                            if (format_quotes.includes("AppOpen Ads")) { didStart = false }
                         } else {
                             if (format_quotes == "") { continue; }
-                            if (dict[currentObject] != null) {
+                            if (dict[currentObject] != null && Object.keys(dict).some(v => format_quotes.includes(v))) {
                                 dict[currentObject] += "\n" + format_quotes
                             } else {
                                 dict[currentObject] = format_quotes
