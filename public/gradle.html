@@ -21,11 +21,12 @@
         }
     </style>
     <script>
+       // var file = "https://www.skyroth.com/public/testgradle.gradle" //    Used for testing -> Update when needed
         var file = "https://raw.githubusercontent.com/freestarcapital/SDK_documentation_Android/master/app/build.gradle";
         var didStart = false
         var dict = new Object()
         var currentObject = "Freestar Ads"
-        var skipObjects = ["Freestar Ad Quality", "AppOpen Ads", "Preroll"] // Don't include these providers if they appear
+        var skipObjects = ["Freestar Ad Quality", "AppOpen Ads", "Preroll", "start preroll", "uncomment if your app is a React Native app"] // Don't include these providers if they appear
         $.get(file,function(txt){
                 var lines = txt.split("\n");
                 var dict = new Object();
@@ -40,11 +41,11 @@
                     }
                     
                     if (didStart) {
-                        if (format_quotes.includes('//') && !format_quotes.includes(currentObject)) {
+                        if (format_quotes.includes('//') && !format_quotes.includes(currentObject) && !format_quotes.includes('implementation')) {
                             currentObject = lines[i].split("//")[1]
                         } else {
                             if (format_quotes == "") { continue; }
-                            if (dict[currentObject] != null && Object.keys(dict).some(v => format_quotes.includes(v))) {
+                            if (dict[currentObject] != null) {
                                 dict[currentObject] += "\n" + format_quotes
                             } else {
                                 dict[currentObject] = format_quotes
