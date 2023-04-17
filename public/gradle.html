@@ -71,6 +71,11 @@
         const trimmedLine = line.trim();
         if (trimmedLine.startsWith('//')) {
             currentKey = trimmedLine.replace('//', '');
+            // start temp code
+            if (currentKey.includes("Google Ads Manager")) { currentKey = "Google Ad Manager (GAM)"}
+            if (currentKey.includes("GAM mediation adapters")) { currentKey = "GAM Mediation Adapters"}
+            if (currentKey.includes("Amazon TAM (Transparent Ads Marketplace)")) { currentKey = "Amazon Transparent Ads Marketplace (TAM)"}
+            // end temp code
         } else if (trimmedLine.startsWith('implementation') && currentKey !== null) {
             if (result[currentKey]) {
             result[currentKey] += '\n' + trimmedLine;
