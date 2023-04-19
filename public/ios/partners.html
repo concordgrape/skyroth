@@ -24,12 +24,8 @@
        // var file = "https://www.skyroth.com/public/testgradle.gradle" //    Used for testing -> Update when needed
         var file = "https://raw.githubusercontent.com/wiki/freestarcapital/SDK_documentation_iOS/Freestar-Ads-Mediation-Swift-iOS.md";
         var didStart = false
-        var dict = new Object()
-        var currentObject = "//Freestar Ads"
-        var skipObjects = ["GAM Mediation"]
         $.get(file,function(txt){
                 var lines = txt.split("\n");
-                var dict = new Object();
                 var listODependencies = "";
                 for (var i = 0, len = lines.length; i < len; i++) {
                     
