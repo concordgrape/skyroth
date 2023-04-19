@@ -12,7 +12,7 @@
         var dict = new Object()
         $.get(file,function(txt){
                 var lines = txt.split("\n");
-                var listODependencies = "";
+                var listOfDependencies = "";
                 for (var i = 0, len = lines.length; i < len; i++) {
                     
                     const format_quotes = lines[i].split("'").join('"');
@@ -27,13 +27,13 @@
                     if (didStart) {
                       if (format_quotes.includes("Ad Provider") || format_quotes.includes("SDK Version")) {
                         var swappy = format_quotes.split("td").join("th")
-                        listODependencies += swappy + '\n'
+                        listOfDependencies += swappy + '\n'
                       } else {
-                        listODependencies += format_quotes + '\n'
+                        listOfDependencies += format_quotes + '\n'
                       }
                     }
                 }
-                document.getElementById("table").innerHTML = listODependencies
+                document.getElementById("table").innerHTML = listOfDependencies
         });
 
     </script>
