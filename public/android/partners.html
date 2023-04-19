@@ -1,40 +1,63 @@
+<!-- Freestar LLC -->
+<!-- Last Modified: April 19, 2023 -->
 <!DOCTYPE html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
+    <style>
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 20%;
+          padding-top: 20px;
+          padding-left: 40px;
+        }
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+    </style>
+    <script>
+       // var file = "https://www.skyroth.com/public/testgradle.gradle" //    Used for testing -> Update when needed
+        var file = "https://raw.githubusercontent.com/wiki/freestarcapital/SDK_documentation_Android/Freestar-Ads-Mediation---Android.md";
+        var didStart = false
+        var dict = new Object()
+        var currentObject = "//Freestar Ads"
+        var skipObjects = ["GAM Mediation"]
+        $.get(file,function(txt){
+                var lines = txt.split("\n");
+                var dict = new Object();
+                var listODependencies = "";
+                for (var i = 0, len = lines.length; i < len; i++) {
+                    
+                    const format_quotes = lines[i].split("'").join('"');
+                    if (format_quotes.includes('<table>')) {
+                        didStart = true
+                        continue;
+                    } else if (format_quotes.includes('</table>')) {
+                        didStart = false
+                        break
+                    }
+                    
+                    if (didStart) {
+                      if (format_quotes.includes("Ad Provider") || format_quotes.includes("SDK Version")) {
+                        var swappy = format_quotes.split("td").join("th")
+                        listODependencies += swappy + '\n'
+                      } else {
+                        listODependencies += format_quotes + '\n'
+                      }
+                    }
+                }
+                document.getElementById("table").innerHTML = listODependencies
+        });
 
-<body>
-    <div style="padding-left: 30px; padding-top: 30px; width: 100%; margin-left: 0px; margin-right: 0px;">
-        <table class="table">
-            <tbody>
-                <tr>  
-                  <th>Ad Provider</th>
-                  <th>SDK Version</th>
-                  <th>Ad Unit Types</th>
-                </tr>
-                  <tr>  <td>AdColony</td> <td>4.8.0</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 300x250, 320x50, 728x90</td> </tr>
-                  <tr>  <td>Admob</td> <td>21.5.0</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 300x250, 320x50, 728x90, Native</td> </tr>
-                  <tr>  <td>Amazon TAM</td> <td>9.5.3</td>  <td>Fullscreen Interstitial, Banner 300x250, 320x50, 728x90</td> </tr>  
-                  <tr>  <td>AppLovin</td> <td>11.5.5</td>  <td>Fullscreen Interstitial, Rewarded, Banner 300x250, 320x50</td> </tr>  
-                  <tr>  <td>AppLovinMAX</td> <td>11.5.5</td>  <td>Fullscreen Interstitial, Rewarded, Banner 300x250, 320x50</td> </tr>  
-                  <tr>  <td>Criteo</td> <td>4.4.0</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 300x250, 320x50</td> </tr>
-                  <tr>  <td>Fyber</td> <td>8.2.0</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 300x250, 320x50</td> </tr>
-                  <tr>  <td>Google Ads Manager</td> <td>21.5.0</td>  <td>Fullscreen Interstitial &amp; Rewarded, 300x250, 320x50, 728x90, Native</td> </tr>
-                  <tr>  <td>Google IMA SDK</td> <td>3.23.0</td>  <td>Preroll</td> </tr>
-                  <tr>  <td>HyprMX</td> <td>6.0.3</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 300x250, 320x50, 728x90</td> </tr>
-                  <tr>  <td>Nimbus</td> <td>2.1.1</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 300x250, 320x50, 728x90</td> </tr>
-                  <tr>  <td>Ogury</td> <td>5.4.0</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 300x250, 320x50</td> </tr>
-                  <tr>  <td>Pangle</td> <td>3.7.1.4</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 320x50, 300x250, Native</td> </tr>
-                  <tr>  <td>Prebid</td> <td>2.0.2</td>  <td>Fullscreen Interstitial, Banner 320x50, 300x250</td> </tr>
-                  <tr>  <td>Tapjoy</td> <td>12.11.1</td>  <td>Fullscreen Interstitial &amp; Rewarded</td> </tr>
-                  <tr>  <td>Unity Ads</td> <td>4.1.0</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 320x50, 728x90</td> </tr>
-                  <tr>  <td>Vungle</td> <td>6.10.4</td>  <td>Fullscreen Interstitial &amp; Rewarded, Banner 300x250, 320x50, 728x90</td> </tr>
-                  <tr>  <td>Yahoo/Verizon</td> <td>1.14.0</td>  <td>Fullscreen Interstitial, 300x250, 320x50</td> </tr>
-            </tbody>
-        </table>
-    </div>
+    </script>
+</head>
+<body style="background-color: #F6F8FA; padding-left: 30px; padding-top: 30px;">
+    <table class="table" id="table">
+    </table>
 </body>
 </html>
