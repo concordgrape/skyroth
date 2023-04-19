@@ -7,18 +7,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        var file = "https://raw.githubusercontent.com/wiki/freestarcapital/SDK_documentation_Android/Freestar-Ads-Mediation---Android.md";
+        const file = "https://raw.githubusercontent.com/wiki/freestarcapital/SDK_documentation_Android/Freestar-Ads-Mediation---Android.md";
         var didStart = false
-        var dict = new Object()
         $.get(file,function(txt){
                 var lines = txt.split("\n");
                 var listOfDependencies = "";
                 for (var i = 0, len = lines.length; i < len; i++) {
-                    
                     const format_quotes = lines[i].split("'").join('"');
                     if (format_quotes.includes('<table>')) {
                         didStart = true
-                        continue;
+                        continue
                     } else if (format_quotes.includes('</table>')) {
                         didStart = false
                         break
@@ -26,7 +24,7 @@
                     
                     if (didStart) {
                       if (format_quotes.includes("Ad Provider") || format_quotes.includes("SDK Version")) {
-                        var swappy = format_quotes.split("td").join("th")
+                        const swappy = format_quotes.split("td").join("th")
                         listOfDependencies += swappy + '\n'
                       } else {
                         listOfDependencies += format_quotes + '\n'
@@ -35,7 +33,6 @@
                 }
                 document.getElementById("table").innerHTML = listOfDependencies
         });
-
     </script>
 </head>
 <body style="background-color: #F6F8FA; padding-left: 30px; padding-top: 30px;">
