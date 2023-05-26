@@ -10,12 +10,11 @@ function Home() {
         <hr />
         <h1>Changelog</h1>
         <h2><a href="https://apps.apple.com/ca/app/white-border/id1574787497" target="_blank">white_border - App</a></h2>
-        <h3>05/22/23</h3>
-        <h4>v1.2</h4>
+        <h3>05/25/23</h3>
+        <h4>v1.3</h4>
         <ul>
             <li>Bug Fixes</li>
-            <li>Add new guide lines</li>
-            <li>Removed some animations to improve performance</li>
+            <li>Added color palette</li>
         </ul>  
         <h2><a href="http://www.loremgen.com" target="_blank">LoremGen.com</a></h2>
         <h3>03/05/23</h3>
