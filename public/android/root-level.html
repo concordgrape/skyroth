@@ -1,15 +1,42 @@
+<!-- Freestar LLC -->
+<!-- Last Modified: June 7, 2023 -->
 <!DOCTYPE html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-</head>
-<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    </style>
     <script>
-        document.querySelector('button').addEventListener('click', () => {
-        const code = document.getElementById('code');
-        code.select();
-        document.execCommand('copy');
+        var file = "https://raw.githubusercontent.com/freestarcapital/SDK_documentation_Android/master/build.gradle";
+        var dict = new Object()
+        var didStart = false
+        $.get(file,function(txt){
+                var lines = txt.split("\n");
+                var dict = new Object();
+                for (var i = 0, len = lines.length; i < len; i++) {
+                    
+                    var format_quotes = lines[i].split("'").join('');
+                    if (format_quotes.includes("task clean")) { break; }
+                    format_quotes = format_quotes.replace(" ", "&nbsp;")
+
+                    $("#dependencies").append(format_quotes+`<br/> `)
+                }
+        });
+
+
+        function createDependency() {
+                var selected = Array.from(document.querySelectorAll("input[type=checkbox]:checked")) 
+                    .map(function(checkbox) { return checkbox.value; })
+    
+                document.getElementById("dependencies").innerHTML = selected;
+            }
+
+            document.querySelector('button').addEventListener('click', () => {
+            const code = document.getElementById('code');
+            code.select();
+            document.execCommand('copy');
         });
 
         function copy_text(item) {
@@ -24,37 +51,11 @@
             document.body.removeChild(el);
         };
     </script>
-    <div style="background-color: #F6F8FA; padding-left: 30px; padding-top: 30px;">
-        <button onclick="copy_text(this)" class="fa fa-clipboard btn btn-outline-dark"></button>
-        <pre><code id="code">
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.google.gms:google-services:4.3.15'
-        classpath 'com.android.tools.build:gradle:4.0.1'
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-        maven { url 'https://freestar.jfrog.io/artifactory/freestar-mediation-android-sdk' }
-        maven { url 'https://s3.amazonaws.com/moat-sdk-builds' }
-        maven { url 'https://sdk.tapjoy.com/' }
-        maven { url 'https://artifact.bytedance.com/repository/pangle' }
-        maven { url 'https://hyprmx.jfrog.io/artifactory/hyprmx' }
-        maven { url 'https://adsbynimbus-public.s3.amazonaws.com/android/sdks' }
-        maven { url 'https://artifactory.verizonmedia.com/artifactory/maven/' }
-        maven { url "https://maven.ogury.co" }
-        maven { url "https://s3.amazonaws.com/smaato-sdk-releases/" }
-    }
-}
-        </code></pre>
-    </div>
+</head>
+<body style="background-color: #F6F8FA; padding-left: 30px; height: 300px">
+    <button onclick="copy_text(this)" class="fa fa-clipboard btn btn-outline-dark" style="margin-top: 30px"></button>
+    <code id="code">
+    <p id="dependencies" style="padding-top: 30px; color: black;"></p>
+    </code>
 </body>
 </html>
