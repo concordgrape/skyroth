@@ -17,7 +17,7 @@
                 var dict = new Object();
                 for (var i = 0, len = lines.length; i < len; i++) {
                     
-                    var format_quotes = lines[i].split("'").join('');
+                    var format_quotes = lines[i].split("'").join('"');
                     if (format_quotes.includes("task clean")) { break; }
                     format_quotes = format_quotes.replace(" ", "&nbsp;")
 
