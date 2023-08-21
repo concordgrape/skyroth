@@ -15,7 +15,8 @@ function Home() {
         <h4>v1.3.2</h4>
         <ul>
             <li>Bug Fixes</li>
-            <li>Optimized dark mode</li>
+            <li>Optimized for dark mode</li>
+            <li>Fixed crashes on iPad</li>
         </ul>  
         <h2><a href="http://www.loremgen.com" target="_blank">LoremGen.com</a></h2>
         <h3>03/05/23</h3>
