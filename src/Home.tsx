@@ -12,7 +12,7 @@ function Home() {
         <h1>Changelog</h1>
         <h2><a href="https://apps.apple.com/ca/app/white-border/id1574787497" target="_blank">white_border - App</a></h2>
         <h3>08/20/23</h3>
-        <h4>v1.3.2</h4>
+        <h4>v1.3.1</h4>
         <ul>
             <li>Bug Fixes</li>
             <li>Optimized for dark mode</li>
