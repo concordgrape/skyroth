@@ -83,7 +83,7 @@
             } else {
             result[currentKey] = trimmedLine;
             }
-        } else if (trimmedLine.startsWith('implementation "com.freestar.android.ads:freestar') || trimmedLine.startsWith('implementation "androidx.lifecycle:lifecycle-')) {
+        } else if (trimmedLine.startsWith('implementation "com.freestar.android.ads:freestar') || trimmedLine.startsWith('implementation "androidx.lifecycle:lifecycle-') || trimmedLine.startsWith('implementation "androidx.constraintlayout')) {
             result["Freestar Ads"] += trimmedLine + "\n"
         }
     }
