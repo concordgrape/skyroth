@@ -11,6 +11,14 @@ function Home() {
         <h3>still adding stuff here lol</h3>
         <hr />
         <h1>Changelog</h1>
+        <h2><a href="https://apps.apple.com/us/app/dermi-skin-care-journal/id1570511480" target="_blank">Dermi - App</a></h2>
+        <h3>09/03/23</h3>
+        <h4>v1.6</h4>
+        <ul>
+            <li>Bug Fixes</li>
+            <li>Resolved photo quality issues</li>
+            <li>Removed paid subscriptions</li>
+        </ul> 
         <h2><a href="https://apps.apple.com/ca/app/white-border/id1574787497" target="_blank">white_border - App</a></h2>
         <h3>08/31/23</h3>
         <h4>v1.3.2</h4>
