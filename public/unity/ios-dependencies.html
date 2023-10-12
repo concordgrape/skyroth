@@ -1,5 +1,5 @@
 <!-- Freestar LLC -->
-<!-- Last Modified: September 13, 2023 -->
+<!-- Last Modified: September 6, 2023 -->
 <!DOCTYPE html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
@@ -21,31 +21,30 @@
         }
     </style>
     <script>
-        var file = "https://raw.githubusercontent.com/freestarcapital/SDK_documentation_iOS/master/FreestarSwiftSample/Podfile";
+        var file = "https://raw.githubusercontent.com/wiki/freestarcapital/SDK_documentation_iOS/Freestar-Ads-Mediation-Unity-iOS.md";
         $.get(file,function(txt){
                 var lines = txt.split("\n");
                 var dict = new Object();
                 var nameArr = [];
                 var valueArr = [];
+                var didStart = false;
                 for (var i = 0, len = lines.length; i < len; i++) {
 
-                    const format_quotes = lines[i].split("'").join('"');
+                    var format_quotes = lines[i].split("'").join('"');
                     const element = format_quotes.split('-')[1]
+                    const formatted = String(element).split('"')[0]
 
-                    if (element != null) {
-                        var currentObj = element.split(/[^A-Za-z]/)[0]
-                        
-                        if (!nameArr.includes(currentObj)) { nameArr.push(currentObj); valueArr.push(format_quotes) } else 
-                        { 
-                            var index = nameArr.indexOf(currentObj)
-                            if (~index) {
-                                valueArr[index] = valueArr[index] + "\n" + format_quotes
-                            }
+                    if (format_quotes.includes("<iosPod") || format_quotes.includes("</iosPod")) {
+
+                        format_quotes = format_quotes.replace("<iosPod", "&ltiosPod")
+
+                        if (format_quotes.includes('"FreestarAds"')) {
+                            $("#default_pods").append(format_quotes);
                         }
 
-                    } else {
-                        if (format_quotes.includes('"FreestarAds"')) {
-                            $("#default_pods").append(format_quotes)
+                        if (!(String(formatted) === 'undefined' || String(formatted) === null)) {
+                            nameArr.push(formatted)
+                            valueArr.push(format_quotes)
                         }
                     }
                 }
@@ -104,7 +103,10 @@ target 'FreestarSwiftSample' do # app name
 # use_frameworks!
 
 # Only specify the partners for which you want to run ads
+
+ &lt;iosPods>
     <p id="default_pods" style="padding-left: 20px; margin: 0;"><p id="pods" style="padding-left: 20px;"></p></p>
+ &lt;/iosPods>
 end
     </code></pre>  
 </body>
