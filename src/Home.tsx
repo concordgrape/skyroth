@@ -2,38 +2,20 @@ import React from 'react';
 
 //        <h2><a href="mailto:sky@yea.dev" target="_blank">sky@yea.dev</a></h2>
 
+const GITHUB_LINK = "http://www.github.com/concordgrape";
+const YEADEV_LINK = "http://www.yea.dev";
+const WHITEBORDER_LINK = "https://apps.apple.com/ca/app/white-border/id1574787497";
+const LOREMGEN_LINK = "http://www.loremgen.com";
 function Home() {
   return (
     <div>
         <h1>Links</h1>
-        <h2><a href="http://www.yea.dev" target="_blank">yea.dev</a></h2>
-        <h2><a href="http://www.github.com/concordgrape" target="_blank">github.com/concordgrape</a></h2>
+        <h2><a href={YEADEV_LINK} target="_blank" rel="noreferrer">yea.dev</a></h2>
+        <h2><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></h2>
         <h3>still adding stuff here lol</h3>
         <hr />
-        <h1>Changelog</h1>
-        <h2><a href="https://apps.apple.com/us/app/dermi-skin-care-journal/id1570511480" target="_blank">Dermi - App</a></h2>
-        <h3>09/03/23</h3>
-        <h4>v1.6</h4>
-        <ul>
-            <li>Bug Fixes</li>
-            <li>Resolved photo quality issues</li>
-            <li>Removed paid subscriptions</li>
-        </ul> 
-        <h2><a href="https://apps.apple.com/ca/app/white-border/id1574787497" target="_blank">white_border - App</a></h2>
-        <h3>08/31/23</h3>
-        <h4>v1.3.2</h4>
-        <ul>
-            <li>Bug Fixes</li>
-            <li>Integrated a CMP for GDPR regions</li>
-        </ul>  
-        <h2><a href="http://www.loremgen.com" target="_blank">LoremGen.com</a></h2>
-        <h3>03/05/23</h3>
-        <h4>v1.0</h4>
-        <ul>
-            <li>Initial Release</li>
-            <li>Decreased default number of generated paragraphs</li>
-            <li>Created original passage section</li>
-        </ul>  
+        <h2><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border - App</a></h2>
+        <h2><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">LoremGen.com</a></h2>
     </div>
   );
 }
