@@ -16,9 +16,9 @@ function Home() {
         <h2><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></h2>
         <h3>still adding stuff here lol</h3>
         <hr />
+        <h2><a href={HTMLCOLORS_LINK} target="_blank" rel="noreferrer">HTMLColors.co</a> / <a href={CSSCOLORS_LINK} target="_blank" rel="noreferrer">CSSColors.net</a></h2>
         <h2><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border - App</a></h2>
         <h2><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">LoremGen.com</a></h2>
-        <h2><a href={HTMLCOLORS_LINK} target="_blank" rel="noreferrer">HTMLColors.co</a> / <a href={CSSCOLORS_LINK} target="_blank" rel="noreferrer">CSSColors.net</a></h2>
     </div>
   );
 }
