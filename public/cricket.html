@@ -22,6 +22,9 @@
     freestar.config = freestar.config || {};
     freestar.config.enabled_slots = [];
     freestar.initCallback = function () { (freestar.config.enabled_slots.length === 0) ? freestar.initCallbackCalled = false : freestar.newAdSlots(freestar.config.enabled_slots) }
+            freestar.queue.push(function () {
+            googletag.pubads().set('page_url', 'https://www.cricket.com.au');
+        });
     </script>
     <script src="https://a.pub.network/cricket-com-au/pubfig.min.js" data-cfasync="false" async></script>
 </head>
