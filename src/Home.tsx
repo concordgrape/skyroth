@@ -5,6 +5,7 @@ import { Heading, Avatar } from 'evergreen-ui';
 const GITHUB_LINK = "http://www.github.com/concordgrape";
 const YEADEV_LINK = "http://www.yea.dev";
 const WHITEBORDER_LINK = "https://apps.apple.com/ca/app/white-border/id1574787497";
+const DERMI_LINK = "https://apps.apple.com/us/app/dermi-skin-care-journal/id1570511480";
 const LOREMGEN_LINK = "http://www.loremgen.com";
 const HTMLCOLORS_LINK = "http://www.htmlcolors.co";
 const CSSCOLORS_LINK = "http://www.csscolors.net";
@@ -25,8 +26,10 @@ function Home() {
             <OrText>links</OrText>
           </OrLine>
           <Header size={700}><a href={HTMLCOLORS_LINK} target="_blank" rel="noreferrer">htmlcolors.co</a> / <a href={CSSCOLORS_LINK} target="_blank" rel="noreferrer">csscolors.net</a></Header>
-          <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border - App</a></Header>
           <Header size={700}><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">loremgen.com</a></Header>
+          <br />
+          <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border - App</a></Header>
+          <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi - App</a></Header>
         </LinksWrapper>
     </HomeWrapper>
   );

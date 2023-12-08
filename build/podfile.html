@@ -1,0 +1,111 @@
+<!-- Freestar LLC -->
+<!-- Last Modified: September 13, 2023 -->
+<!DOCTYPE html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 20%;
+          padding-top: 20px;
+          padding-left: 40px;
+        }
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+    </style>
+    <script>
+        var file = "https://raw.githubusercontent.com/freestarcapital/SDK_documentation_iOS/master/FreestarSwiftSample/Podfile";
+        $.get(file,function(txt){
+                var lines = txt.split("\n");
+                var dict = new Object();
+                var nameArr = [];
+                var valueArr = [];
+                for (var i = 0, len = lines.length; i < len; i++) {
+
+                    const format_quotes = lines[i].split("'").join('"');
+                    const element = format_quotes.split('-')[1]
+
+                    if (element != null) {
+                        var currentObj = element.split(/[^A-Za-z]/)[0]
+                        
+                        if (!nameArr.includes(currentObj)) { nameArr.push(currentObj); valueArr.push(format_quotes) } else 
+                        { 
+                            var index = nameArr.indexOf(currentObj)
+                            if (~index) {
+                                valueArr[index] = valueArr[index] + "\n" + format_quotes
+                            }
+                        }
+
+                    } else {
+                        if (format_quotes.includes('"FreestarAds"')) {
+                            $("#default_pods").append(format_quotes)
+                        }
+                    }
+                }
+
+                for (const entry in nameArr) {
+                    if (nameArr[entry] == "Googleadmob") { nameArr[entry] = "Google Admob"}
+                    $("#options").append(`
+                    <div class="form-check column">
+                        <input class="form-check-input" type="checkbox" value='`+valueArr[entry]+`' id="flexCheckDefault" onchange="createPod()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            `+nameArr[entry]+`
+                        </label>
+                    </div>
+                    `)
+                }
+        }); 
+
+
+        function createPod() {
+                var selected = Array.from(document.querySelectorAll("input[type=checkbox]:checked")) 
+                    .map(function(checkbox) { return checkbox.value; })
+                    .join('<br>');
+    
+                document.getElementById("pods").innerHTML = selected;
+            }
+
+            document.querySelector('button').addEventListener('click', () => {
+            const code = document.getElementById('code');
+            code.select();
+            document.execCommand('copy');
+            });
+
+        function copy_text(item) {
+            const str = document.querySelector("#code").querySelectorAll("#default_pods")[0].innerText +  "\n" + document.querySelector("#code").querySelectorAll("#pods")[0].innerText
+            const el = document.createElement("textarea");
+            el.value = str;
+            el.setAttribute("readonly", "");
+            el.style.position = "absolute";
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.select(); document.execCommand("copy");
+            document.body.removeChild(el);
+        };
+    </script>
+</head>
+<body style="background-color: #F6F8FA; padding-left: 30px; padding-top: 30px;">
+    <span id="options" class="row"></span>
+    <button onclick="copy_text(this)" class="fa fa-clipboard btn btn-outline-dark" style="margin-top: 30px;"></button>
+    <pre><code id="code">
+            
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.0' # minimum ios version
+
+target 'FreestarSwiftSample' do # app name
+# Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+# use_frameworks!
+
+# Only specify the partners for which you want to run ads
+    <p id="default_pods" style="padding-left: 20px; margin: 0;"><p id="pods" style="padding-left: 20px;"></p></p>
+end
+    </code></pre>  
+</body>
+</html>
