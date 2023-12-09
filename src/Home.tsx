@@ -13,7 +13,7 @@ const CSSCOLORS_LINK = "http://www.csscolors.net";
 function Home() {
   return (
     <HomeWrapper>
-        <Heading size={900}>Links</Heading>
+        <Heading style={{color: 'white'}} size={900}>Links</Heading>
         <AvatarWrapper>
           <Avatar name="Sky Roth" size={40} color="blue" />
         </AvatarWrapper>
@@ -59,11 +59,20 @@ const LinksWrapper = styled.div`
 
 const Header = styled(Heading)`
   margin-top: 10px;
+  color: white;
+
+  & a {
+    color: #007AFF;
+  }
+
+  & a:visited {
+    color: #007AFF;
+  }
 `
 const OrLine = styled.div`
   width: 100%; 
   text-align: center; 
-  border-bottom: 1px solid #000; 
+  border-bottom: 1px solid #B7B8B6; 
   line-height: 0.1em;
   margin: 30px 0 30px;
 
@@ -76,6 +85,6 @@ const OrText = styled.span`
   padding: 0 30px;
   width: 100px;
   margin: auto;
-  background-color: white;
+  background-color: #262626;
   text-transform: uppercase;
 `

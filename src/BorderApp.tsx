@@ -2,7 +2,7 @@ import React from 'react';
 
 function BorderApp() {
   return (
-    <div>
+    <div style={{color: 'white'}}>
         <h1>white_border - Privacy Policy</h1>
         <h2>Last Updated: May 22, 2023</h2>
         <hr></hr>
@@ -41,7 +41,7 @@ function BorderApp() {
         If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.
         
         <br></br><br></br>
-        <a href = "mailto: sky@yea.dev">sky@yea.dev</a>
+        <a style={{color: '#007AFF'}} href = "mailto: sky@yea.dev">sky@yea.dev</a>
     </div>
   );
 }
