@@ -43,7 +43,10 @@ const HomeWrapper = styled.div`
   margin: 4em;
   justify-content: center;
   align-items: center;
-  width: 100vh; /* Assuming you want to center it in the middle of the screen vertically */
+
+  @media only screen and (max-width: 768px) {
+    margin: 2em;
+  }
 `
 
 const AvatarWrapper = styled.div`
@@ -63,6 +66,10 @@ const OrLine = styled.div`
   border-bottom: 1px solid #000; 
   line-height: 0.1em;
   margin: 30px 0 30px;
+
+  @media only screen and (max-width: 768px) {
+    margin: 50px 0 50px;
+  }
 `
 
 const OrText = styled.span`
