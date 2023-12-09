@@ -9,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/white_border" element={<BorderApp />} />
+      <Route path="/dermi" element={<BorderApp />} />
       <Route path="*" element={<Home />} />
     </Routes>
   );

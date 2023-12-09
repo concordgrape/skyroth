@@ -22,9 +22,11 @@ function Home() {
           <Header size={700}><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></Header>
           <br />
           <Header>still adding stuff here lol</Header>
-          <OrLine>
-            <OrText>links</OrText>
-          </OrLine>
+          <Header>
+            <OrLine>
+              <OrText>Links</OrText>
+            </OrLine>
+          </Header>
           <Header size={700}><a href={HTMLCOLORS_LINK} target="_blank" rel="noreferrer">htmlcolors.co</a> / <a href={CSSCOLORS_LINK} target="_blank" rel="noreferrer">csscolors.net</a></Header>
           <Header size={700}><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">loremgen.com</a></Header>
           <br />
@@ -39,6 +41,9 @@ export default Home;
 
 const HomeWrapper = styled.div`
   margin: 4em;
+  justify-content: center;
+  align-items: center;
+  width: 100vh; /* Assuming you want to center it in the middle of the screen vertically */
 `
 
 const AvatarWrapper = styled.div`
@@ -52,21 +57,18 @@ const LinksWrapper = styled.div`
 const Header = styled(Heading)`
   margin-top: 10px;
 `
-
 const OrLine = styled.div`
-  padding-top: 1.625rem;
-  line-height: 0;
-  border-bottom: 1px solid black;
-  margin-bottom: 40px;
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #000; 
+  line-height: 0.1em;
+  margin: 30px 0 30px;
 `
 
 const OrText = styled.span`
-  display: inline;
-  padding: 0 0.625rem;
-  font-weight: 700;
-  background: #fff;
-  color: black;
+  padding: 0 40px;
+  width: 100px;
+  margin: auto;
+  background-color: white;
   text-transform: uppercase;
-  font-size: .625rem;
-  line-height: 0;
 `
