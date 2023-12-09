@@ -66,7 +66,7 @@ const OrLine = styled.div`
 `
 
 const OrText = styled.span`
-  padding: 0 40px;
+  padding: 0 30px;
   width: 100px;
   margin: auto;
   background-color: white;
