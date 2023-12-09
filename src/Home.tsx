@@ -24,7 +24,7 @@ function Home() {
           <Header>still adding stuff here lol</Header>
           <Header>
             <OrLine>
-              <OrText>Links</OrText>
+              <OrText>projects</OrText>
             </OrLine>
           </Header>
           <Header size={700}><a href={HTMLCOLORS_LINK} target="_blank" rel="noreferrer">htmlcolors.co</a> / <a href={CSSCOLORS_LINK} target="_blank" rel="noreferrer">csscolors.net</a></Header>
