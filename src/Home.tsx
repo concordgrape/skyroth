@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Heading, Avatar } from 'evergreen-ui';
 
@@ -15,7 +14,7 @@ function Home() {
     <HomeWrapper>
         <Heading style={{color: 'white'}} size={900}>Links</Heading>
         <AvatarWrapper>
-          <Avatar name="Sky Roth" size={40} color="blue" />
+          <Avatar name="Sky Roth" size={40} color="orange" />
         </AvatarWrapper>
         <LinksWrapper>
           <Header size={700}><a href={YEADEV_LINK} target="_blank" rel="noreferrer">yea.dev</a></Header>
@@ -67,6 +66,10 @@ const Header = styled(Heading)`
 
   & a:visited {
     color: #007AFF;
+  }
+
+  & a:hover {
+    color: #B0CCEA;
   }
 `
 const OrLine = styled.div`
