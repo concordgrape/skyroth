@@ -13,15 +13,12 @@ function Home() {
   return (
     <HomeWrapper>
         <Heading style={{color: 'white'}} size={900}>Links</Heading>
-        <Header size={100}>01/25/24</Header>
         <AvatarWrapper>
           <Avatar name="Sky Roth" size={40} color="orange" />
         </AvatarWrapper>
         <LinksWrapper>
           <Header size={700}><a href={YEADEV_LINK} target="_blank" rel="noreferrer">yea.dev</a></Header>
           <Header size={700}><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></Header>
-          <br />
-          <Header>still adding stuff here lol</Header>
           <Header>
             <OrLine>
               <OrText>projects</OrText>
