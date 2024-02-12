@@ -12,7 +12,6 @@ const CSSCOLORS_LINK = "http://www.csscolors.net";
 function Home() {
   return (
     <HomeWrapper>
-        <Heading style={{color: 'white'}} size={900}>Links</Heading>
         <AvatarWrapper>
           <Avatar name="Sky Roth" size={40} color="orange" />
         </AvatarWrapper>
@@ -27,8 +26,8 @@ function Home() {
           <Header size={700}><a href={HTMLCOLORS_LINK} target="_blank" rel="noreferrer">htmlcolors.co</a> / <a href={CSSCOLORS_LINK} target="_blank" rel="noreferrer">csscolors.net</a></Header>
           <Header size={700}><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">loremgen.com</a></Header>
           <br />
-          <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border - App</a></Header>
-          <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi - App</a></Header>
+          <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border</a></Header>
+          <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi</a></Header>
         </LinksWrapper>
     </HomeWrapper>
   );
@@ -59,15 +58,16 @@ const Header = styled(Heading)`
   color: white;
 
   & a {
-    color: #007AFF;
+    color: #B0CCEA;
+    text-decoration: none;
   }
 
   & a:visited {
-    color: #007AFF;
+    color: #B0CCEA;
   }
 
   & a:hover {
-    color: #B0CCEA;
+    color: darkgrey;
   }
 `
 const OrLine = styled.div`
