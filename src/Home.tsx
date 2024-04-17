@@ -18,12 +18,16 @@ function Home() {
           <Header size={700}><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></Header>
           <Header>
             <OrLine>
-              <OrText>projects</OrText>
+              <OrText>web</OrText>
             </OrLine>
           </Header>
           <Header size={700}><a href={HTMLCOLORS_LINK} target="_blank" rel="noreferrer">htmlcolors.co</a> / <a href={CSSCOLORS_LINK} target="_blank" rel="noreferrer">csscolors.net</a></Header>
           <Header size={700}><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">loremgen.com</a></Header>
-          <br />
+          <Header>
+            <OrLine>
+              <OrText>app</OrText>
+            </OrLine>
+          </Header>
           <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border</a></Header>
           <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi</a></Header>
         </LinksWrapper>
