@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Heading, Avatar } from 'evergreen-ui';
 
 const GITHUB_LINK = "http://www.github.com/concordgrape";
-const YEADEV_LINK = "http://www.yea.dev";
 const WHITEBORDER_LINK = "https://apps.apple.com/ca/app/white-border/id1574787497";
 const DERMI_LINK = "https://apps.apple.com/us/app/dermi-skin-care-journal/id1570511480";
 const LOREMGEN_LINK = "http://www.loremgen.com";
@@ -16,7 +15,6 @@ function Home() {
           <Avatar name="Sky Roth" size={40} color="orange" />
         </AvatarWrapper>
         <LinksWrapper>
-          <Header size={700}><a href={YEADEV_LINK} target="_blank" rel="noreferrer">yea.dev</a></Header>
           <Header size={700}><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></Header>
           <Header>
             <OrLine>
