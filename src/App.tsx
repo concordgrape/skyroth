@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Home from './Home';
-import BorderApp from './BorderApp';
+import Home from './Pages/Home';
+import BorderApp from './Pages/BorderApp';
 
 function App() {
   return (

@@ -1,12 +1,18 @@
 import styled from 'styled-components';
-import { Heading, Avatar } from 'evergreen-ui';
+import { 
+  Heading,
+  Avatar
+} from 'evergreen-ui';
 
-const GITHUB_LINK = "http://www.github.com/concordgrape";
-const WHITEBORDER_LINK = "https://apps.apple.com/ca/app/white-border/id1574787497";
-const DERMI_LINK = "https://apps.apple.com/us/app/dermi-skin-care-journal/id1570511480";
-const LOREMGEN_LINK = "http://www.loremgen.com";
-const HTMLCOLORS_LINK = "http://www.htmlcolors.co";
-const CSSCOLORS_LINK = "http://www.csscolors.net";
+//  LINKS
+import { 
+  GITHUB_LINK,
+  HTMLCOLORS_LINK,
+  CSSCOLORS_LINK,
+  LOREMGEN_LINK,
+  WHITEBORDER_LINK,
+  DERMI_LINK
+} from '../Constants/URLs';
 
 function Home() {
   return (
@@ -16,20 +22,21 @@ function Home() {
         </AvatarWrapper>
         <LinksWrapper>
           <Header size={700}><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></Header>
-          <Header>
-            <OrLine>
+          <br />
+          <OrLine>
               <OrText>web</OrText>
             </OrLine>
-          </Header>
           <Header size={700}><a href={HTMLCOLORS_LINK} target="_blank" rel="noreferrer">htmlcolors.co</a> / <a href={CSSCOLORS_LINK} target="_blank" rel="noreferrer">csscolors.net</a></Header>
           <Header size={700}><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">loremgen.com</a></Header>
-          <Header>
-            <OrLine>
+          <OrLine>
               <OrText>app</OrText>
             </OrLine>
-          </Header>
           <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border</a></Header>
           <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi</a></Header>
+          {/*<br />
+          <br />
+          <br />
+          <Header style={{color: '#9a9a9a'}}>I know, I'm a programmer not a designer</Header>*/}
         </LinksWrapper>
     </HomeWrapper>
   );
@@ -38,7 +45,9 @@ function Home() {
 export default Home;
 
 const HomeWrapper = styled.div`
-  margin: 4em;
+  margin: 25em;
+  margin-top: 4em;
+  margin-bottom: 4em;
   justify-content: center;
   align-items: center;
 
@@ -89,5 +98,8 @@ const OrText = styled.span`
   width: 100px;
   margin: auto;
   background-color: #262626;
-  text-transform: uppercase;
+  color: white;
+  font-family: Poppins;
+  font-weight: 600;
+  /*text-transform: uppercase;*/
 `

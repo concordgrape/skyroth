@@ -1,5 +1,3 @@
-import React from 'react';
-
 function BorderApp() {
   return (
     <div style={{color: 'white'}}>
