@@ -11,7 +11,8 @@ import {
   CSSCOLORS_LINK,
   LOREMGEN_LINK,
   WHITEBORDER_LINK,
-  DERMI_LINK
+  DERMI_LINK,
+  VERBUU_LINK
 } from '../Constants/URLs';
 
 function Home() {
@@ -26,6 +27,7 @@ function Home() {
           <OrLine>
               <OrText>web</OrText>
             </OrLine>
+          <Header size={700}><a href={VERBUU_LINK} target="_blank" rel="noreferrer">verbuu.com</a></Header>
           <Header size={700}><a href={HTMLCOLORS_LINK} target="_blank" rel="noreferrer">htmlcolors.co</a> / <a href={CSSCOLORS_LINK} target="_blank" rel="noreferrer">csscolors.net</a></Header>
           <Header size={700}><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">loremgen.com</a></Header>
           <OrLine>
