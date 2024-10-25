@@ -1,13 +1,8 @@
-import '../App.css';
-
 function DermiApp() {
   return (
-    <div className='box'>
-        <h2 className="linear-wipe">Dermi</h2>
-        <p>Privacy Policy</p>
-        <br></br>
-        <p>Last Updated: September 1, 2023</p>
-        <hr></hr>
+    <div className='box' style={{backgroundColor: 'white', padding: 50}}>
+        <h1>Dermi - Privacy Policy</h1>
+        <h2>Last Updated: Sept 1, 2023</h2>
         <p>Welcome to our privacy policy.<br></br>We value your trust and are committed to protecting your privacy. This Privacy Policy is designed to help you understand how we collect, use, disclose, and safeguard your personal information when you use Dermi. By using Dermi, you agree to the practices described in this Privacy Policy.</p><br></br>
         <div style={{textAlign: 'center'}}>
             <p>
@@ -58,7 +53,7 @@ function DermiApp() {
                 Thank you for using Dermi. Your privacy is important to us.
                 
                 <br></br><br></br>
-                <a href = "mailto: sky@yea.dev">sky@yea.dev</a>
+                <a href = "mailto: hi@skyroth.com">hi@skyroth.com</a>
             </p>
         </div>
     </div>

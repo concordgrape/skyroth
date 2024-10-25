@@ -1,6 +1,6 @@
 function BorderApp() {
   return (
-    <div style={{color: 'white'}}>
+    <div style={{backgroundColor: 'white', padding: 50}}>
         <h1>white_border - Privacy Policy</h1>
         <h2>Last Updated: May 22, 2023</h2>
         <hr></hr>

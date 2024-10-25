@@ -1,12 +1,8 @@
-import '../App.css';
-
 function VerbuuApp() {
   return (
-    <div className='box'>
-        <h2 className="linear-wipe">Verbuu</h2>
-        <p>Privacy Policy</p>
-        <br></br>
-        <p>Last Updated: October 25, 2024</p>
+    <div className='box' style={{backgroundColor: 'white', padding: 50}}>
+        <h1>Verbuu - Privacy Policy</h1>
+        <h2>Last Updated: Oct 25, 2024</h2>
         <hr></hr>
         <p>Welcome to our privacy policy.<br></br>We value your trust and are committed to protecting your privacy. This Privacy Policy is designed to help you understand how we collect, use, disclose, and safeguard your personal information when you use Verbuu. By using Verbuu, you agree to the practices described in this Privacy Policy.</p><br></br>
         <div style={{textAlign: 'center'}}>
