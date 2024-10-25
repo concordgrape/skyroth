@@ -39,7 +39,7 @@ function BorderApp() {
         If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.
         
         <br></br><br></br>
-        <a style={{color: '#007AFF'}} href = "mailto: sky@yea.dev">sky@yea.dev</a>
+        <a style={{color: '#007AFF'}} href = "mailto: hi@skyroth.com">hi@skyroth.com</a>
     </div>
   );
 }
