@@ -23,7 +23,7 @@ function Home() {
         </AvatarWrapper>
         <LinksWrapper>
           <Header size={700}><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></Header>
-          <br />
+          {/*<br />
           <OrLine>
               <OrText>web</OrText>
             </OrLine>
@@ -35,10 +35,7 @@ function Home() {
             </OrLine>
           <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border</a></Header>
           <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi</a></Header>
-          {/*<br />
-          <br />
-          <br />
-          <Header style={{color: '#9a9a9a'}}>I know, I'm a programmer not a designer</Header>*/}
+          */}
         </LinksWrapper>
     </HomeWrapper>
   );
