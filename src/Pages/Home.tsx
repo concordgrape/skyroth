@@ -19,7 +19,7 @@ function Home() {
   return (
     <HomeWrapper>
         <AvatarWrapper>
-          <Avatar name="Sky Roth" size={40} color="orange" />
+          <Avatar name="Sky Roth" size={40} color="blue" />
         </AvatarWrapper>
         <LinksWrapper>
           <Header size={700}><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></Header>
@@ -36,6 +36,14 @@ function Home() {
           <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border</a></Header>
           <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi</a></Header>
           */}
+          <br />
+          <OrLine>
+              <OrText>projects</OrText>
+            </OrLine>
+          <Header size={700}><a href={VERBUU_LINK} target="_blank" rel="noreferrer">verbuu.com</a></Header>
+          <Header size={700}><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">loremgen.com</a></Header>
+          <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border</a></Header>
+          <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi</a></Header>
         </LinksWrapper>
     </HomeWrapper>
   );
@@ -68,16 +76,16 @@ const Header = styled(Heading)`
   color: white;
 
   & a {
-    color: #B0CCEA;
+    color: darkgrey;
     text-decoration: none;
   }
 
   & a:visited {
-    color: #B0CCEA;
+    color: darkgrey;
   }
 
   & a:hover {
-    color: darkgrey;
+    color: #B0CCEA;
   }
 `
 const OrLine = styled.div`
