@@ -7,7 +7,6 @@ import {
 //  LINKS
 import { 
   GITHUB_LINK,
-  LOREMGEN_LINK,
   WHITEBORDER_LINK,
   DERMI_LINK,
   VERBUU_LINK
@@ -26,7 +25,6 @@ function Home() {
             <OrText>projects</OrText>
           </OrLine>
           <Header size={700}><a href={VERBUU_LINK} target="_blank" rel="noreferrer">verbuu.com</a></Header>
-          <Header size={700}><a href={LOREMGEN_LINK} target="_blank" rel="noreferrer">loremgen.com</a></Header>
           <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border</a></Header>
           <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi</a></Header>
         </LinksWrapper>
