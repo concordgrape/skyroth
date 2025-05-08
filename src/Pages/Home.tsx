@@ -17,7 +17,7 @@ function Home() {
   return (
     <HomeWrapper>
         <AvatarWrapper>
-          <Avatar name="Sky Roth" size={40} color="blue" />
+          <div style={{backgroundColor: '#ffb067', width: 40, height: 40, borderRadius: '50%'}}></div>
         </AvatarWrapper>
         <LinksWrapper>
           <Header size={700}><a href={GITHUB_LINK} target="_blank" rel="noreferrer">github.com/concordgrape</a></Header>
@@ -57,23 +57,23 @@ const Header = styled(Heading)`
   color: white;
 
   & a {
-    color: darkgrey;
+    color: #4c4c4c;
     text-decoration: none;
   }
 
   & a:visited {
-    color: darkgrey;
+    color: #4c4c4c;
   }
 
   & a:hover {
-    color: #B0CCEA;
+    color: darkgrey;
   }
 `
 const OrLine = styled.div`
   width: 100%; 
   max-width: 500px;
   text-align: center; 
-  border-bottom: 1px solid #B7B8B6; 
+  border-bottom: 1px solid gray; 
   line-height: 0.1em;
   margin: 30px 0 30px;
 `
@@ -82,9 +82,10 @@ const OrText = styled.span`
   padding: 0 30px;
   width: 100px;
   margin: auto;
-  background-color: #262626;
-  color: white;
+  background-color: white;
+  color: gray;
   font-family: Poppins;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 13px;
   /*text-transform: uppercase;*/
 `
