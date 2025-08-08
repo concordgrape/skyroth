@@ -11,7 +11,8 @@ import {
   DERMI_LINK,
   VERBUU_LINK,
   WORDHUNT_LINK,
-  LILCARDS_LINK
+  LILCARDS_LINK,
+  COMMONGERMANWORDS_LINK
 } from '../Constants/URLs';
 
 function Home() {
@@ -26,11 +27,13 @@ function Home() {
           <OrLine>
             <OrText>projects</OrText>
           </OrLine>
+          <Header size={700}><a href={COMMONGERMANWORDS_LINK} target="_blank" rel="noreferrer">commongermanwords.com</a></Header>
           <Header size={700}><a href={WORDHUNT_LINK} target="_blank" rel="noreferrer">wordhunt.io</a></Header>
           <Header size={700}><a href={LILCARDS_LINK} target="_blank" rel="noreferrer">lil.cards</a></Header>
           <Header size={700}><a href={VERBUU_LINK} target="_blank" rel="noreferrer">verbuu.com</a></Header>
           <Header size={700}><a href={WHITEBORDER_LINK} target="_blank" rel="noreferrer">white_border</a></Header>
           <Header size={700}><a href={DERMI_LINK} target="_blank" rel="noreferrer">dermi</a></Header>
+
         </LinksWrapper>
     </HomeWrapper>
   );
