@@ -4,3 +4,4 @@ export const DERMI_LINK = "https://dermi.app";
 export const VERBUU_LINK = "https://www.verbuu.com";
 export const WORDHUNT_LINK = "https://www.wordhunt.io";
 export const LILCARDS_LINK = "https://www.lil.cards";
+export const COMMONGERMANWORDS_LINK = "https://www.commongermanwords.com";
