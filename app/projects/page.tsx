@@ -7,17 +7,17 @@ import Link from "next/link";
 export default function Portfolio() {
   const projectLinks = [
     {
-      date: "November 24, 2025",
+      date: "11/24/25",
       title: "Verbuu.com - Learn Common Words in any Language",
       link: "https://verbuu.com",
     },
     {
-      date: "November 23, 2025",
+      date: "11/23/25",
       title: "WordHunt.io - Daily Word Search Game",
       link: "https://wordhunt.io",
     },
     {
-      date: "April 11, 2025",
+      date: "04/11/25",
       title: "white_border - Add White Borders to Photos (iOS)",
       link: "https://apps.apple.com/ca/app/white-border/id1574787497",
     },
