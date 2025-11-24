@@ -7,7 +7,7 @@ author: 'Sky Roth'
 
 ## Background
 
-During the creation of Verbuu.com, I mainly focused on building the site around common words spoken in a specific language. However, during the past couple months, I've been working on implementing AI to communicate with users and help them understand the language they're trying to learn. 
+During the creation of Verbuu, I mainly focused on building the site around common words spoken in a specific language. However, during the past couple months, I've been working on implementing AI to communicate with users and help them understand the language they're trying to learn. 
 
 ### The Initial Problem with AI APIs
 
@@ -23,7 +23,7 @@ That's when I decided to implement my own AI tech stack.
 
 ### AI Tech Stack for Verbuu
 
-Within the AI section of the Verbuu.com website, I use **LangChain** and **Mem0**. Both of these frameworks are very important to create an AI agent.
+Within the AI section of the Verbuu website, I use **LangChain** and **Mem0**. Both of these frameworks are very important to create an AI agent.
 
 LangChain allows you to create specific AI agents for a variety of purposes. In this case, I wanted my AI to act like a tutor. Where, I would give the AI a simple prompt with major keywords I want the tutor to focus on. In the background, using LangChain, I would have a much larger prompt to distinguish user preferences, specific use cases, and required responses. LangChain also monitors the context of the given messages. In this case, I'm passing in every message that was spoken in the chat room to LangChain. This AI agent then generates a message based upon the large prompt initially given and the required prompts that it should monitor. Splitting these prompts together and keeping some original requirements in memory, cuts down on the overall input token count by nearly **60%**. 
 
