@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import { CA, DE } from 'country-flag-icons/react/3x2';
 
 export default function Portfolio() {
   const blogPosts = [
@@ -60,10 +61,12 @@ export default function Portfolio() {
 
         {/* Title */}
         <motion.h1 
-          className="text-2xl font-bold"
+          className="text-2xl font-bold flex items-center gap-2"
           variants={itemVariants}
         >
           Sky Roth
+          <CA className="w-6 h-4" />
+          <DE className="w-6 h-4" />
         </motion.h1>
 
         <motion.h3 
