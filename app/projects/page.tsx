@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
+import { containerVariants, itemVariants } from "../helpers/constants";
+import { ExternalLinkIcon } from "lucide-react";
 
 export default function Portfolio() {
   const projectLinks = [
@@ -22,35 +24,6 @@ export default function Portfolio() {
       link: "https://apps.apple.com/ca/app/white-border/id1574787497",
     },
   ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      filter: "blur(10px)",
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      filter: "blur(0px)",
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
   return (
     <div className="min-h-screen max-w-200 bg-white px-4 py-8">
       <motion.div
@@ -74,12 +47,10 @@ export default function Portfolio() {
               className="flex gap-4"
               variants={itemVariants}
             >
-              <span className="text-gray-600 whitespace-nowrap">
-                {post.date}
-              </span>
               <Link href={post.link} className="hover:underline">
                 {post.title}
               </Link>
+              <ExternalLinkIcon size={14} className="text-gray-600 mt-1" />
             </motion.div>
           ))}
         </motion.div>

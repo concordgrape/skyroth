@@ -18,7 +18,9 @@ export default function RootLayout({
         className={`antialiased`}
       >
         <Analytics />
+        <>
         {children}
+        </>
       </body>
     </html>
   );

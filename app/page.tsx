@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import { CA, DE } from 'country-flag-icons/react/3x2';
+import { containerVariants, itemVariants } from './helpers/constants';
 
 export default function Portfolio() {
   const blogPosts = [
@@ -20,36 +20,8 @@ export default function Portfolio() {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      filter: 'blur(10px)',
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      filter: 'blur(0px)',
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut' as const,
-      },
-    },
-  };
-
   return (
-    <div className="min-h-screen max-w-150 bg-white px-4 py-8">
+    <div className="max-w-150 bg-white px-4 py-8">
       <motion.div
         className="max-w-4xl mx-auto"
         initial="hidden"

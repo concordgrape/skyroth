@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import "./markdown.css";
 import Navbar from "@/app/components/Navbar";
-import AudioPlayer from "@/app/components/AudioPlayer";
+import { containerVariants, itemVariants } from "@/app/helpers/constants";
 
 interface Post {
   slug: string;
@@ -19,36 +19,8 @@ interface BlogPostClientProps {
 }
 
 export default function BlogPostClient({ post }: BlogPostClientProps) {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      filter: "blur(10px)",
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      filter: "blur(0px)",
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
   return (
-    <div className="min-h-screen max-w-200 bg-white px-4 py-8">
+    <div className="min-h-screen max-w-150 bg-white px-4 py-8">
       <motion.div
         className="max-w-4xl mx-auto"
         initial="hidden"
