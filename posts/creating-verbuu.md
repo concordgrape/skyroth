@@ -8,18 +8,16 @@ author: 'Sky Roth'
 ## Background
 
 During my own language learning process, I've subscribed to many sites and services that offer easy and innovative ways to learn. However, I didn't find any of these useful. I kept getting stuck in grammar lessons and learning useless phrases such as *"The girl and the dog had fun outside"*. In reality, no one speaks like this.
-
-I wanted to learn a language by **SPEAKING**, not memorizing abnormal phrases and sentences. How could I achieve this? 
+I wanted to learn a language by **SPEAKING**, not memorizing abnormal phrases and sentences. How could I achieve this?
 
 ## Creation of Verbuu
 
 That's when I realized I should just start speaking the language, cold turkey. Sure, I don't understand the grammar aspect of it, but that's how I'll learn. I'll teach myself common words and use regular English grammatical structures.
 
-When babies learn languages, they don't practice the grammar first, they speak it. They repeat words their parents are speaking, why are we any different? Sure, you'll make mistakes, but that's the point. I started writing down random words from my German classes on flashcards and memorizing the translations. I soon started to think that there must be a better way to automate this.
+When babies learn languages, they don't practice the grammar first—they speak it. They repeat words their parents are speaking. Why are we any different? Sure, you'll make mistakes, but that's the point. I started writing down random words from my German classes on flashcards and memorizing the translations. I soon started to think that there must be a better way to automate this.
+Going off of that, there are about 130,000 words in the English language. When we speak to colleagues or our family on a day-to-day basis, we don't use all 130,000 words. In fact, we only use about 3,000. I continued to think—when learning languages, we tend to focus on all the words and not the most common.
 
-Going on top of that, there are about 130,000 words in the English language. When we speak to colleagues or our family on a day-to-day basis, we don't use all 130,000 words. In fact, we only use about 3,000. I continued to think, when learning languages, we tend to focus on all the words and not the most common.
-
-That's when I came up with the idea of Verbuu. I started grabbing as many words as I could, in this case, German. I found the most popular TV shows and movies in Germany and parsed through all of the subtitles using a simple Python script. In the end, I had a database with about 1,000,000 sentences and about 8,000,000 words. Next, I parsed all of the words to analyze the frequencies of each word and how many times it appears. This turned the bulk data into a database with about 100,000 words. I then cut it to the top 10,000 and created Verbuu.
+That's when I came up with the idea of Verbuu. I started grabbing as many words as I could, in this case, German. I found the most popular TV shows and movies in Germany and parsed through all of the subtitles using a simple Python script. In the end, I had a database with about 1,000,000 sentences and about 8,000,000 words. Next, I parsed all of the words to analyze the frequencies of each word and how many times it appeared. This turned the bulk data into a database with about 100,000 words. I then cut it to the top 10,000 and created Verbuu.
 
 ## Features of Verbuu
 
