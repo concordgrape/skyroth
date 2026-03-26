@@ -19,6 +19,11 @@ export default function Portfolio() {
       link: "https://wordhunt.io",
     },
     {
+      date: "03/26/26",
+      title: "WordGames.net - Simple online word games (Under development)",
+      link: "https://wordgames.net",
+    },
+    {
       date: "04/11/25",
       title: "white_border - Add White Borders to Photos (iOS)",
       link: "https://apps.apple.com/ca/app/white-border/id1574787497",
