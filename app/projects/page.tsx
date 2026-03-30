@@ -23,11 +23,6 @@ export default function Portfolio() {
       title: "WordGames.net - Simple online word games (Under development)",
       link: "https://wordgames.net",
     },
-    {
-      date: "04/11/25",
-      title: "white_border - Add White Borders to Photos (iOS)",
-      link: "https://apps.apple.com/ca/app/white-border/id1574787497",
-    },
   ];
   return (
     <div className="min-h-screen max-w-200 bg-white px-4 py-8">
