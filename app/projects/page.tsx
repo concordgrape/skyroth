@@ -20,7 +20,7 @@ export default function Portfolio() {
     },
     {
       date: "03/26/26",
-      title: "WordGames.net - Daily Word Games (Under Development)",
+      title: "WordGames.net - Daily Word Games",
       link: "https://wordgames.net",
     },
   ];
