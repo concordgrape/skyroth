@@ -13,9 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ backgroundColor: "white" }}>
       <body
         className={`antialiased`}
+        style={{ backgroundColor: "white" }}
       >
         <Analytics />
         <>
