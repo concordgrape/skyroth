@@ -9,6 +9,11 @@ import { ExternalLinkIcon } from "lucide-react";
 export default function Portfolio() {
   const projectLinks = [
     {
+      date: "03/26/26",
+      title: "WordGames.net - Daily Word Games",
+      link: "https://wordgames.net",
+    },
+    {
       date: "11/24/25",
       title: "Verbuu.com - Learn Common Words in any Language",
       link: "https://verbuu.com",
@@ -17,11 +22,6 @@ export default function Portfolio() {
       date: "11/23/25",
       title: "WordHunt.io - Daily Word Search Game",
       link: "https://wordhunt.io",
-    },
-    {
-      date: "03/26/26",
-      title: "WordGames.net - Daily Word Games",
-      link: "https://wordgames.net",
     },
   ];
   return (
