@@ -57,8 +57,8 @@ export default function Portfolio() {
         </motion.p>
 
         {/* Blog Posts */}
-        <motion.div 
-          className="space-y-6 mb-20"
+        <motion.div
+          className="space-y-6 mb-20 hidden"
           variants={itemVariants}
         >
           {blogPosts.map((post, index) => (

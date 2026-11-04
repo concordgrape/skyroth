@@ -16,7 +16,7 @@ export default function Navbar({ itemVariants }: NavbarProps) {
           <Link href="/" className="hover:underline">
             home
           </Link>
-          <Link href="/blog" className="hover:underline">
+          <Link href="/blog" className="hover:underline hidden">
             blog
           </Link>
           <Link href="/projects" className="hover:underline">
